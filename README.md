@@ -67,6 +67,78 @@ A script is provided to automatically block traffic from identified attacker IPs
    - Test the network by sending traffic between the INSIDE, OUTSIDE, and DMZ zones to ensure that the security policy is enforced.
    - Use the provided script to block traffic from attacker IPs and verify that the blocking rules are applied correctly.
 
+---------------------------------------------------------------------------------------------------------------------------------------------
+### IP Addressing
+
+#### RouterInside:
+- **PC1**: 10.2.2.100/24
+- **f0/1**: 10.2.2.10/24
+- **f0/0**: 10.1.1.10/24
+
+#### RouterOutside:
+- **PC2**: 200.2.2.100/24
+- **f0/1**: 200.2.2.10/24
+- **f0/0**: 200.1.1.10/24
+
+#### DMZ:
+- **192.1.1.100/24**
+- **192.1.1.200/24**
+
+#### LB1A:
+- **eth0**: 10.1.1.1/24
+- **eth1**: 10.0.0.1/24
+- **eth2**: 10.0.2.1/24
+- **eth3**: 10.0.3.1/24
+
+#### FW1:
+- **eth0**: 10.5.3.2/24
+- **eth1**: 10.0.3.2/24
+- **eth2**: 10.3.3.2/24
+- **eth3**: 10.4.3.2/24
+- **eth4**: 10.6.1.2/24
+
+#### LB2A:
+- **eth0**: 200.1.1.1/24
+- **eth1**: 10.5.1.1/24
+- **eth2**: 10.5.2.1/24
+- **eth3**: 10.5.3.1/24
+
+#### FW2:
+- **eth0**: 10.4.2.2/24
+- **eth1**: 10.3.2.2/24
+- **eth2**: 10.0.2.2/24
+- **eth3**: 10.5.2.2/24
+- **eth4**: 10.6.2.2/24
+
+#### LB1B:
+- **eth0**: 10.1.1.2/24
+- **eth1**: 10.0.0.2/24
+- **eth2**: 10.3.2.1/24
+- **eth3**: 10.3.3.1/24
+
+#### LB2B:
+- **eth0**: 200.1.1.2/24
+- **eth1**: 10.5.1.2/24
+- **eth2**: 10.4.2.1/24
+- **eth3**: 10.4.3.1/24
+
+#### LBDMZ:
+- **eth0**: 192.1.1.1/24
+- **eth1**: 10.6.1.1/24
+- **eth2**: 10.6.2.1/24
+
+### Commands Used
+
+#### Router 1 Inside:
+conf term
+ip route 0.0.0.0 0.0.0.0 10.1.1.1   # Send all traffic outside through these interfaces
+ip route 0.0.0.0 0.0.0.0 10.1.1.2
+
+
+
+
+
+
 ## Anexos
 The project includes detailed IP addressing and configuration for all devices, including routers, load balancers, and firewalls. Refer to the project documentation for specific configuration details.
 
