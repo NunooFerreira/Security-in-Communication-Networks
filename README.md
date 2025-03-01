@@ -133,13 +133,13 @@ A script is provided to automatically block traffic from identified attacker IPs
 
 ### Commands Used
 
-###Router 1 Inside:
+### Router 1 Inside:
 conf term
 ip route 0.0.0.0 0.0.0.0 10.1.1.1   # Send all traffic outside through these interfaces
 ip route 0.0.0.0 0.0.0.0 10.1.1.2
 
 
-###Router 2 Outside:
+### Router 2 Outside:
 conf term
 ip route 10.0.0.0 255.0.0.0 200.1.1.1   # Send all traffic to 10.0.0.0 through LB2A
 ip route 192.1.0.0 255.255.254.0 200.1.1.1   # Send all traffic to DMZ through LB2
