@@ -1,0 +1,20 @@
+Apr 27 14:06:19.672 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Apr 27 14:06:19.673 HYPERVISOR: Started on IP = localhost, TCP port = 63001.
+Apr 27 14:06:20.180 HYPERVISOR: exec_cmd: hypervisor version 
+Apr 27 14:06:20.181 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Boost\Ambiente de Trabalho\SRC\Pratica\SRC_PROJECT_1\project1\project-files\dynamips 
+Apr 27 14:06:20.181 GENERAL: working_dir=C:\Users\Boost\Ambiente de Trabalho\SRC\Pratica\SRC_PROJECT_1\project1\project-files\dynamips
+Apr 27 14:06:20.181 HYPERVISOR: exec_cmd: ethsw create Switch1 
+Apr 27 14:06:26.732 HYPERVISOR: exec_cmd: nio create_udp udp-f5bd46c3-abb5-493b-810d-d4198c22c789 20005 127.0.0.1 20004 
+Apr 27 14:06:26.733 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-f5bd46c3-abb5-493b-810d-d4198c22c789 
+Apr 27 14:06:26.733 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-f5bd46c3-abb5-493b-810d-d4198c22c789 1 
+Apr 27 14:06:27.124 HYPERVISOR: exec_cmd: nio create_udp udp-e1367a9d-f66b-4897-a9da-9aa3275b65cb 20012 127.0.0.1 20013 
+Apr 27 14:06:27.124 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-e1367a9d-f66b-4897-a9da-9aa3275b65cb 
+Apr 27 14:06:27.141 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-e1367a9d-f66b-4897-a9da-9aa3275b65cb 1 
+Apr 27 14:06:27.271 HYPERVISOR: exec_cmd: nio create_udp udp-0a864097-077e-4cfa-9bc9-d585d4539620 20014 127.0.0.1 20015 
+Apr 27 14:06:27.273 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-0a864097-077e-4cfa-9bc9-d585d4539620 
+Apr 27 14:06:27.294 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-0a864097-077e-4cfa-9bc9-d585d4539620 1 
+Apr 27 17:39:59.932 HYPERVISOR: exec_cmd: nio bind_filter udp-e1367a9d-f66b-4897-a9da-9aa3275b65cb 2 capture 
+Apr 27 17:39:59.932 HYPERVISOR: exec_cmd: nio setup_filter udp-e1367a9d-f66b-4897-a9da-9aa3275b65cb 2 en10mb C:\Users\Boost\Ambiente de Trabalho\SRC\Pratica\SRC_PROJECT_1\project1\project-files\captures\Switch1_Ethernet1_to_LB1A_eth0.pcap 
+Apr 27 17:40:19.549 HYPERVISOR: exec_cmd: nio unbind_filter udp-e1367a9d-f66b-4897-a9da-9aa3275b65cb 2 
+Apr 27 20:56:09.239 HYPERVISOR: Stopped.
+Apr 27 20:56:09.303 GENERAL: reset done.

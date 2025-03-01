@@ -1,0 +1,67 @@
+Apr 27 14:06:19.038 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Apr 27 14:06:19.039 HYPERVISOR: Started on IP = localhost, TCP port = 62994.
+Apr 27 14:06:19.540 HYPERVISOR: exec_cmd: hypervisor version 
+Apr 27 14:06:19.541 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Boost\Ambiente de Trabalho\SRC\Pratica\SRC_PROJECT_1\project1\project-files\dynamips 
+Apr 27 14:06:19.541 GENERAL: working_dir=C:\Users\Boost\Ambiente de Trabalho\SRC\Pratica\SRC_PROJECT_1\project1\project-files\dynamips
+Apr 27 14:06:19.541 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Boost\Ambiente de Trabalho\SRC\Pratica\SRC_PROJECT_1\project1\project-files\dynamips\70410bce-1870-4254-940e-506f6eec5c08 
+Apr 27 14:06:19.541 GENERAL: working_dir=C:\Users\Boost\Ambiente de Trabalho\SRC\Pratica\SRC_PROJECT_1\project1\project-files\dynamips\70410bce-1870-4254-940e-506f6eec5c08
+Apr 27 14:06:19.541 HYPERVISOR: exec_cmd: vm create R2 2 c7200 
+Apr 27 14:06:19.548 VM: VM R2 created.
+Apr 27 14:06:19.549 HYPERVISOR: exec_cmd: vm set_con_tcp_port R2 5005 
+Apr 27 14:06:19.549 HYPERVISOR: exec_cmd: c7200 get_mac_addr R2 
+Apr 27 14:06:19.549 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 27 14:06:19.549 HYPERVISOR: exec_cmd: vm slot_add_binding R2 0 0 C7200-IO-FE 
+Apr 27 14:06:19.550 HYPERVISOR: exec_cmd: vm set_disk0 R2 0 
+Apr 27 14:06:19.550 HYPERVISOR: exec_cmd: vm set_exec_area R2 64 
+Apr 27 14:06:19.551 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 27 14:06:19.551 HYPERVISOR: exec_cmd: vm set_idle_pc R2 0x60608040 
+Apr 27 14:06:19.551 HYPERVISOR: exec_cmd: vm set_ios R2 C:/Users/Boost/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+Apr 27 14:06:19.553 HYPERVISOR: exec_cmd: c7200 set_mac_addr R2 ca02.0568.0000 
+Apr 27 14:06:19.553 HYPERVISOR: exec_cmd: vm set_nvram R2 512 
+Apr 27 14:06:19.554 HYPERVISOR: exec_cmd: vm set_ram R2 512 
+Apr 27 14:06:19.554 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 27 14:06:19.554 HYPERVISOR: exec_cmd: vm slot_remove_binding R2 0 0 
+Apr 27 14:06:19.555 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 27 14:06:19.555 HYPERVISOR: exec_cmd: vm slot_add_binding R2 0 0 C7200-IO-2FE 
+Apr 27 14:06:19.555 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 27 14:06:19.555 HYPERVISOR: exec_cmd: vm slot_add_binding R2 1 0 PA-2FE-TX 
+Apr 27 14:06:19.556 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 27 14:06:19.556 HYPERVISOR: exec_cmd: vm slot_add_binding R2 2 0 PA-2FE-TX 
+Apr 27 14:06:19.556 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 27 14:06:19.556 HYPERVISOR: exec_cmd: vm slot_add_binding R2 3 0 PA-2FE-TX 
+Apr 27 14:06:26.807 HYPERVISOR: exec_cmd: nio create_udp udp-a78c27a1-1f30-4f48-8b2b-51c65a21604c 20010 127.0.0.1 20011 
+Apr 27 14:06:27.082 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 0 udp-a78c27a1-1f30-4f48-8b2b-51c65a21604c 
+Apr 27 14:06:27.082 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 27 14:06:30.301 HYPERVISOR: exec_cmd: nio create_udp udp-ca5ea469-c025-4d28-8639-9c8122d2069f 20056 127.0.0.1 20057 
+Apr 27 14:06:30.303 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 1 udp-ca5ea469-c025-4d28-8639-9c8122d2069f 
+Apr 27 14:06:30.303 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 27 14:07:06.794 HYPERVISOR: exec_cmd: vm create Ghost 0 c7200 
+Apr 27 14:07:06.796 VM: VM Ghost created.
+Apr 27 14:07:06.797 HYPERVISOR: exec_cmd: vm set_ios Ghost C:/Users/Boost/GNS3/images/IOS/c7200-adventerprisek9-mz.151-4.M2.image 
+Apr 27 14:07:06.798 HYPERVISOR: exec_cmd: vm set_ghost_status Ghost 1 
+Apr 27 14:07:06.798 HYPERVISOR: exec_cmd: vm set_ghost_file Ghost C:\Users\Boost\Ambiente de Trabalho\SRC\Pratica\SRC_PROJECT_1\project1\project-files\dynamips\c7200-adventerprisek9-mz.151-4.M2.image-512.ghost 
+Apr 27 14:07:06.799 HYPERVISOR: exec_cmd: vm set_ram Ghost 512 
+Apr 27 14:07:06.800 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Apr 27 14:07:06.821 HYPERVISOR: exec_cmd: vm set_config Ghost configs\i0_startup-config.cfg 
+Apr 27 14:07:06.821 HYPERVISOR: exec_cmd: vm start Ghost 
+Apr 27 14:07:07.570 HYPERVISOR: exec_cmd: vm get_status Ghost 
+Apr 27 14:07:07.572 HYPERVISOR: exec_cmd: vm stop Ghost 
+Apr 27 14:07:07.701 VM: VM Ghost shutdown.
+Apr 27 14:07:07.702 HYPERVISOR: exec_cmd: vm extract_config Ghost 
+Apr 27 14:07:07.703 HYPERVISOR: exec_cmd: vm clean_delete Ghost 
+Apr 27 14:07:07.703 VM: VM Ghost destroyed.
+Apr 27 14:07:07.712 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Apr 27 14:07:07.712 HYPERVISOR: exec_cmd: vm set_ghost_file R2 C:\Users\Boost\Ambiente de Trabalho\SRC\Pratica\SRC_PROJECT_1\project1\project-files\dynamips\c7200-adventerprisek9-mz.151-4.M2.image-512.ghost 
+Apr 27 14:07:07.713 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 27 14:07:07.719 HYPERVISOR: exec_cmd: vm set_config R2 configs\i2_startup-config.cfg configs\i2_private-config.cfg 
+Apr 27 14:07:07.719 HYPERVISOR: exec_cmd: vm start R2 
+Apr 27 14:07:38.020 HYPERVISOR: exec_cmd: vm extract_config R2 
+Apr 27 20:53:42.609 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 27 20:53:42.610 HYPERVISOR: exec_cmd: vm stop R2 
+Apr 27 20:53:42.741 VM: VM R2 shutdown.
+Apr 27 20:53:42.743 HYPERVISOR: exec_cmd: vm extract_config R2 
+Apr 27 20:55:58.212 HYPERVISOR: exec_cmd: vm get_status R2 
+Apr 27 20:55:58.215 HYPERVISOR: exec_cmd: vm extract_config R2 
+Apr 27 20:56:09.238 HYPERVISOR: Stopped.
+Apr 27 20:56:09.239 VM: VM R2 destroyed.
+Apr 27 20:56:09.239 GENERAL: reset done.
