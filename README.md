@@ -133,88 +133,22 @@ A script is provided to automatically block traffic from identified attacker IPs
 
 ### Commands Used
 
-#### Router 1 Inside:
+###Router 1 Inside:
 conf term
 ip route 0.0.0.0 0.0.0.0 10.1.1.1   # Send all traffic outside through these interfaces
 ip route 0.0.0.0 0.0.0.0 10.1.1.2
 
 
-####Router 2 Outside:
+###Router 2 Outside:
 conf term
 ip route 10.0.0.0 255.0.0.0 200.1.1.1   # Send all traffic to 10.0.0.0 through LB2A
-ip route 192.1.0.0 255.255.254.0 200.1.1.1   # Send all traffic to DMZ through LB2A
+ip route 192.1.0.0 255.255.254.0 200.1.1.1   # Send all traffic to DMZ through LB2
 
-####LB1A:
-set protocols static route 10.2.2.0/24 next-hop 10.1.1.10   # Route for admin network
-set high-availability vrrp group LB1AB_Cluster interface eth1
-set high-availability vrrp group LB1AB_Cluster rfc3768-compatibility
-set high-availability vrrp group LB1AB_Cluster virtual-address 10.0.0.1/24
-set high-availability vrrp group LB1AB_Cluster vrid 1
-set high-availability vrrp sync-group LB1AB_Cluster member LB1AB_Cluster
 
-set service conntrack-sync accept-protocol tcp,udp,icmp
-set service conntrack-sync failover-mechanism vrrp sync-group LB1AB_Cluster
-set service conntrack-sync interface eth1
-set service conntrack-sync mcast-group 225.0.0.50
-set service conntrack-sync disable-external-cache
 
-set load-balancing wan interface-health eth2 nexthop 10.0.2.2
-set load-balancing wan interface-health eth3 nexthop 10.0.3.2
-set load-balancing wan rule 1 inbound-interface eth0
-set load-balancing wan rule 1 interface eth2 weight 1
-set load-balancing wan rule 1 interface eth3 weight 1
-set load-balancing wan rule 1 protocol all
-set load-balancing wan sticky-connections inbound
-set load-balancing wan disable-source-nat
 
-####FW1:
-# NAT Rules
-set nat source rule 10 outbound-interface eth0
-set nat source rule 10 source address 10.0.0.0/8
-set nat source rule 10 translation address 192.1.0.1-192.1.0.10
 
-set nat source rule 20 outbound-interface eth3
-set nat source rule 20 source address 10.0.0.0/8
-set nat source rule 20 translation address 192.1.0.1-192.1.0.10
 
-# Static Routes
-set protocols static route 0.0.0.0/0 next-hop 10.4.3.1   # Send all traffic outside through eth0
-set protocols static route 0.0.0.0/0 next-hop 10.5.3.1   # Send all traffic outside through eth3
-set protocols static route 10.0.0.0/8 next-hop 10.0.3.1   # Send all traffic to INSIDE through eth1
-set protocols static route 10.0.0.0/8 next-hop 10.3.3.1   # Send all traffic to INSIDE through eth2
-set protocols static route 192.1.1.0/24 next-hop 10.6.1.1   # Send all traffic to DMZ
-
-# Firewall Rules
-set firewall name FROM-DMZ-TO-INSIDE rule 10 action accept
-set firewall name FROM-DMZ-TO-INSIDE rule 10 description "Accept connection DMZ-INSIDE"
-set firewall name FROM-DMZ-TO-INSIDE rule 10 state established enable
-set firewall name FROM-DMZ-TO-INSIDE rule 10 state related enable
-
-set firewall name FROM-INSIDE-TO-DMZ rule 10 action accept
-set firewall name FROM-INSIDE-TO-DMZ rule 10 description "Accept ICMP only to DMZ"
-set firewall name FROM-INSIDE-TO-DMZ rule 10 destination address 192.1.1.0/24
-set firewall name FROM-INSIDE-TO-DMZ rule 10 icmp type 8
-set firewall name FROM-INSIDE-TO-DMZ rule 10 protocol icmp
-
-set firewall name FROM-INSIDE-TO-DMZ rule 20 action accept
-set firewall name FROM-INSIDE-TO-DMZ rule 20 description "Accept multiple services for admin use: HTTP, HTTPS, SSH"
-set firewall name FROM-INSIDE-TO-DMZ rule 20 protocol tcp
-set firewall name FROM-INSIDE-TO-DMZ rule 20 destination port 22,80,443
-set firewall name FROM-INSIDE-TO-DMZ rule 20 destination address 192.1.1.0/24
-set firewall name FROM-INSIDE-TO-DMZ rule 20 source address 10.2.2.100/24   # Admin
-
-set firewall name FROM-INSIDE-TO-DMZ rule 30 action accept
-set firewall name FROM-INSIDE-TO-DMZ rule 30 description "Accept DNS to DMZ"
-set firewall name FROM-INSIDE-TO-DMZ rule 30 destination address 192.1.1.3/24
-set firewall name FROM-INSIDE-TO-DMZ rule 30 protocol udp
-set firewall name FROM-INSIDE-TO-DMZ rule 30 destination port 53
-set firewall name FROM-INSIDE-TO-DMZ rule 30 source address 10.2.2.100/24   # Admin
-
-set firewall name FROM-INSIDE-TO-DMZ rule 40 action accept
-set firewall name FROM-INSIDE-TO-DMZ rule 40 description "Accept normal use of HTTP and HTTPS for public users"
-set firewall name FROM-INSIDE-TO-DMZ rule 40 destination address 192.1.1.100/24
-set firewall name FROM-INSIDE-TO-DMZ rule 40 destination port 80,443
-set firewall name FROM-INSIDE-TO-DMZ rule 40 protocol tcp
 
 
 ## Conclusion
