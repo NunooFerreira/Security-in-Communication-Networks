@@ -23,7 +23,7 @@ The network is divided into three zones:
 2. **OUTSIDE**: External network simulating the internet, including a subnet for attackers.
 3. **DMZ**: Demilitarized zone with servers accessible from both internal and external networks.
 
-![topologia](https://github.com/user-attachments/assets/25da0869-fd1b-4e01-8106-a69a3b80dde3)
+![image](https://github.com/user-attachments/assets/d1ff60f5-843c-467b-aa7b-94955009d462)
 
 
 
