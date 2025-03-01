@@ -168,7 +168,6 @@ A script is provided to automatically block traffic from identified attacker IPs
 - set load-balancing wan disable-source-nat
 
   
-### FW1:
 # NAT Rules
 - set nat source rule 10 outbound-interface eth0
 - set nat source rule 10 source address 10.0.0.0/8
