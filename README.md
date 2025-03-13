@@ -219,9 +219,5 @@ A script is provided to automatically block traffic from identified attacker IPs
 - set firewall name FROM-INSIDE-TO-DMZ rule 40 protocol tcp
 
 
-
-
-
-
 ## Conclusion
 This project demonstrates the implementation of a secure network topology with defined security policies, load balancing, and firewall rules to protect against external threats while allowing legitimate traffic to flow between zones.
